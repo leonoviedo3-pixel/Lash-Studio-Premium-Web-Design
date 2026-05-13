@@ -175,6 +175,76 @@
     });
   }
 
+  function initProductosAnimations() {
+    if (!document.querySelector("#productos")) return;
+
+    gsap.from(".productos__title, .productos__subtitle", {
+      y: 30,
+      opacity: 0,
+      duration: 0.9,
+      ease: "expo.out",
+      stagger: 0.08,
+      scrollTrigger: {
+        trigger: "#productos",
+        start: "top 80%",
+      },
+    });
+
+    document.querySelectorAll(".productos__category").forEach(function (cat) {
+      gsap.from(cat.querySelector(".productos__category-head"), {
+        x: -40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: cat,
+          start: "top 80%",
+        },
+      });
+
+      var roman = cat.querySelector(".productos__category-roman");
+      if (roman) {
+        gsap.fromTo(
+          roman,
+          { opacity: 0 },
+          {
+            opacity: 0.3,
+            duration: 1.5,
+            ease: "expo.out",
+            scrollTrigger: {
+              trigger: cat,
+              start: "top 85%",
+            },
+          }
+        );
+      }
+
+      gsap.from(cat.querySelectorAll(".producto"), {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        ease: "expo.out",
+        stagger: 0.06,
+        scrollTrigger: {
+          trigger: cat,
+          start: "top 75%",
+        },
+      });
+    });
+
+    gsap.from(".productos__cta > *", {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: "expo.out",
+      stagger: 0.08,
+      scrollTrigger: {
+        trigger: ".productos__cta",
+        start: "top 85%",
+      },
+    });
+  }
+
   function init() {
     if (typeof gsap === "undefined") {
       console.warn("GSAP not loaded — animations skipped.");
@@ -187,6 +257,7 @@
     initCurvaturasAnimations();
     initGrosoresAnimations();
     initLongitudesAnimations();
+    initProductosAnimations();
   }
 
   if (document.readyState === "loading") {
