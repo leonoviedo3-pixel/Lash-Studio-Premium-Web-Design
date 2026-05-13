@@ -76,36 +76,6 @@ a {
   color: var(--color-cream);
 }
 
-#hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-  background: var(--color-ink);
-}
-
-.hero__title {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: clamp(3rem, 9vw, 9rem);
-  letter-spacing: 0.05em;
-  color: var(--color-cream);
-  line-height: 1;
-}
-
-.hero__tagline {
-  margin-top: 1.5rem;
-  font-family: var(--font-body);
-  font-weight: 200;
-  font-style: italic;
-  font-size: 0.95rem;
-  letter-spacing: 0.15em;
-  color: var(--color-nude);
-}
-
 #servicios {
   min-height: 60vh;
   display: flex;

@@ -46,36 +46,43 @@
     });
   }
 
-  // ─── Hero · cinematic intro + scroll parallax ────────────
+  // ─── Hero · editorial intro timeline + BJ parallax ───────
+  // Las líneas del título usan overflow:hidden en el wrapper y un
+  // span interno que entra desde y:102% — efecto "type reveal" sin
+  // SplitText. La secuencia es absoluta (posiciones en la timeline)
+  // para respetar el ritmo del spec.
   function initHeroAnimations() {
     if (!document.querySelector("#hero")) return;
 
-    const intro = gsap.timeline({ defaults: { ease: EASE } });
-    intro
-      .from(".hero__title", { y: 80, opacity: 0, duration: 1.6 })
-      .from(".hero__tagline", { y: 20, opacity: 0, duration: 1.0 }, "-=0.8");
+    const tl = gsap.timeline({ delay: 0.3, defaults: { ease: "expo.out" } });
 
-    gsap.to(".hero__title", {
-      y: -80,
-      opacity: 0.15,
+    tl.from(
+      ".hero__eyebrow-word",
+      { y: 15, opacity: 0, duration: 0.9, stagger: 0.04 },
+      0
+    )
+      .from(
+        ".hero__line--1 .hero__line-inner",
+        { yPercent: 102, duration: 1.4 },
+        0.3
+      )
+      .from(
+        ".hero__line--2 .hero__line-inner",
+        { yPercent: 102, duration: 1.4 },
+        0.48
+      )
+      .from(".hero__sub", { y: 25, opacity: 0, duration: 1.0 }, 0.9)
+      .from(".hero__cta", { y: 20, opacity: 0, duration: 0.9 }, 1.1)
+      .from(".hero__scroll", { opacity: 0, duration: 1.2 }, 1.8);
+
+    gsap.to(".hero-bg-text", {
+      y: -120,
       ease: "none",
       scrollTrigger: {
         trigger: "#hero",
         start: "top top",
         end: "bottom top",
-        scrub: 1,
-      },
-    });
-
-    gsap.to(".hero__tagline", {
-      y: -40,
-      opacity: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom 30%",
-        scrub: 1,
+        scrub: 1.5,
       },
     });
   }

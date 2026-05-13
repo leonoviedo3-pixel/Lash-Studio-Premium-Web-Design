@@ -14,6 +14,7 @@
   />
 
   <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/sections/hero.css" />
   <link rel="stylesheet" href="css/sections/curvaturas.css" />
   <link rel="stylesheet" href="css/sections/grosores.css" />
   <link rel="stylesheet" href="css/sections/longitudes.css" />
@@ -35,9 +36,48 @@
   </header>
 
   <main>
-    <section id="hero">
-      <h1 class="hero__title">Lash Studio BJ</h1>
-      <p class="hero__tagline">Soft Luxury · Bianca Jazmín</p>
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <div class="hero__circle hero__circle--xl" aria-hidden="true"></div>
+      <div class="hero__circle hero__circle--lg" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero-bg-text" aria-hidden="true">BJ</div>
+
+      <div class="hero__content">
+        <p class="hero__eyebrow" aria-label="Cruz del Eje, Córdoba · Argentina">
+          <span class="hero__eyebrow-word">Cruz</span>
+          <span class="hero__eyebrow-word">del</span>
+          <span class="hero__eyebrow-word">Eje,</span>
+          <span class="hero__eyebrow-word">Córdoba</span>
+          <span class="hero__eyebrow-word">·</span>
+          <span class="hero__eyebrow-word">Argentina</span>
+        </p>
+
+        <h1 id="hero-heading" class="hero__heading">
+          <span class="hero__line hero__line--1">
+            <span class="hero__line-inner">El arte</span>
+          </span>
+          <span class="hero__line hero__line--2 hero__line--accent">
+            <span class="hero__line-inner">de la mirada.</span>
+          </span>
+        </h1>
+
+        <p class="hero__sub">Extensiones · Lifting · Tratamientos</p>
+
+        <a
+          class="hero__cta"
+          href="https://wa.me/543549632202?text=Hola%20BJ!%20Vi%20tu%20sitio%20y%20quiero%20reservar%20un%20turno%20🌿"
+          target="_blank"
+          rel="noopener"
+        >
+          <span>Reservá tu turno</span>
+          <span class="hero__cta-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-label">Scroll</span>
+      </div>
     </section>
 
     <section id="servicios">

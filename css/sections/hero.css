@@ -1,0 +1,251 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 6rem 6rem;
+  background: var(--color-ink);
+  overflow: hidden;
+  color: var(--color-cream);
+}
+
+/* ─────────────  FONDO DECORATIVO  ───────────── */
+
+.hero__circle {
+  position: absolute;
+  border: 1px solid rgba(200, 169, 110, 0.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero__circle--lg {
+  top: -15%;
+  right: -10%;
+  width: 700px;
+  height: 700px;
+}
+
+.hero__circle--xl {
+  top: -25%;
+  right: -20%;
+  width: 1000px;
+  height: 1000px;
+  border-color: rgba(200, 169, 110, 0.04);
+}
+
+.hero__glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 65% 35%,
+    rgba(200, 169, 110, 0.07) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.hero-bg-text {
+  position: absolute;
+  right: 5%;
+  bottom: 8%;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(12rem, 22vw, 20rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: rgba(200, 169, 110, 0.04);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* ─────────────  CONTENIDO  ───────────── */
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero__eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45em;
+  margin-bottom: 1.8rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 110, 0.7);
+}
+
+.hero__eyebrow-word {
+  display: inline-block;
+}
+
+.hero__heading {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(4rem, 8.5vw, 10rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  color: var(--color-cream);
+  margin: 0;
+}
+
+.hero__line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero__line-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+.hero__line--accent .hero__line-inner {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.hero__sub {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.78rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(201, 169, 138, 0.7);
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2.8rem;
+  border: 1px solid var(--color-gold);
+  border-radius: 2px;
+  background: transparent;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: background 0.4s cubic-bezier(0.76, 0, 0.24, 1),
+    color 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.hero__cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.hero__cta:hover,
+.hero__cta:focus-visible {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.hero__cta:hover .hero__cta-arrow,
+.hero__cta:focus-visible .hero__cta-arrow {
+  transform: translateX(5px);
+}
+
+/* ─────────────  SCROLL HINT  ───────────── */
+
+.hero__scroll {
+  position: absolute;
+  right: 5rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--color-gold), transparent);
+  animation: hero-pulso 2s ease-in-out infinite;
+}
+
+.hero__scroll-label {
+  writing-mode: vertical-rl;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 110, 0.4);
+}
+
+@keyframes hero-pulso {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ─────────────  RESPONSIVE  ───────────── */
+
+@media (max-width: 1024px) {
+  .hero {
+    padding: 0 3rem 5rem;
+  }
+  .hero__scroll {
+    right: 2rem;
+    bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 1.5rem 5rem;
+  }
+
+  .hero__heading {
+    font-size: clamp(3.5rem, 14vw, 6rem);
+  }
+
+  .hero-bg-text {
+    font-size: 45vw;
+    bottom: 15%;
+    right: -5%;
+  }
+
+  .hero__eyebrow {
+    font-size: 0.55rem;
+    letter-spacing: 0.32em;
+  }
+
+  .hero__sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    margin-bottom: 2.2rem;
+  }
+
+  .hero__cta {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}
