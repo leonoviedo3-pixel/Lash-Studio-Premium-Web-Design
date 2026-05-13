@@ -102,6 +102,79 @@
     });
   }
 
+  function initLongitudesAnimations() {
+    if (!document.querySelector("#longitudes")) return;
+
+    gsap.from(".longitudes__title", {
+      y: 40,
+      opacity: 0,
+      duration: 1.0,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: "#longitudes",
+        start: "top 80%",
+      },
+    });
+
+    gsap.from(".longitud-row__bar", {
+      width: 0,
+      duration: 0.6,
+      ease: "expo.out",
+      stagger: 0.04,
+      scrollTrigger: {
+        trigger: ".longitudes__chart",
+        start: "top 80%",
+      },
+    });
+
+    gsap.from(".longitud-row__dot", {
+      scale: 0,
+      duration: 0.4,
+      ease: "back.out(2)",
+      stagger: 0.04,
+      delay: 0.6,
+      scrollTrigger: {
+        trigger: ".longitudes__chart",
+        start: "top 80%",
+      },
+    });
+
+    gsap.from(".longitud-row__value, .longitud-row__range", {
+      opacity: 0,
+      x: -10,
+      duration: 0.5,
+      ease: "expo.out",
+      stagger: 0.03,
+      scrollTrigger: {
+        trigger: ".longitudes__chart",
+        start: "top 80%",
+      },
+    });
+
+    gsap.from(".longitudes__guide-title", {
+      y: 30,
+      opacity: 0,
+      duration: 0.9,
+      ease: "expo.out",
+      scrollTrigger: {
+        trigger: ".longitudes__guide",
+        start: "top 85%",
+      },
+    });
+
+    gsap.from(".perfil", {
+      y: 40,
+      opacity: 0,
+      duration: 1.0,
+      ease: "expo.out",
+      stagger: 0.12,
+      scrollTrigger: {
+        trigger: ".longitudes__perfiles",
+        start: "top 85%",
+      },
+    });
+  }
+
   function init() {
     if (typeof gsap === "undefined") {
       console.warn("GSAP not loaded — animations skipped.");
@@ -113,6 +186,7 @@
 
     initCurvaturasAnimations();
     initGrosoresAnimations();
+    initLongitudesAnimations();
   }
 
   if (document.readyState === "loading") {

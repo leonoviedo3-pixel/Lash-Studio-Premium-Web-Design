@@ -1,0 +1,277 @@
+.longitudes {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding: 8rem 6rem;
+}
+
+.longitudes__container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.longitudes__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 5.5vw;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-cream);
+  text-align: left;
+}
+
+.longitudes__subtitle {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-style: italic;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  color: var(--color-nude);
+}
+
+/* ─────────────  ESCALA HORIZONTAL  ───────────── */
+
+.longitudes__chart {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.longitud-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: default;
+}
+
+.longitud-row__value {
+  flex-shrink: 0;
+  width: 80px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--color-cream);
+  text-align: right;
+}
+
+.longitud-row__track {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.longitud-row__bar {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(to right, var(--color-gold), rgba(200, 169, 110, 0.2));
+  opacity: 0.4;
+  transition: opacity 0.4s var(--ease-luxury);
+}
+
+.longitud-row__dot {
+  position: absolute;
+  top: 50%;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  transform: translateY(-50%);
+  transition: transform 0.4s var(--ease-luxury), box-shadow 0.4s var(--ease-luxury);
+  transform-origin: center;
+}
+
+.longitud-row__range {
+  flex-shrink: 0;
+  width: 110px;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 110, 0.6);
+  text-align: left;
+}
+
+.longitud-row__tooltip {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  left: 80px;
+  padding: 0.4rem 1rem;
+  background: var(--color-gold);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-luxury);
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.longitud-row:hover .longitud-row__bar,
+.longitud-row:focus-within .longitud-row__bar {
+  opacity: 1;
+}
+
+.longitud-row:hover .longitud-row__dot,
+.longitud-row:focus-within .longitud-row__dot {
+  transform: translateY(-50%) scale(1.6);
+  box-shadow: 0 0 12px rgba(200, 169, 110, 0.6);
+}
+
+.longitud-row:hover .longitud-row__tooltip,
+.longitud-row:focus-within .longitud-row__tooltip {
+  opacity: 1;
+}
+
+/* ─────────────  BLOQUE INFERIOR · ¿Qué longitud es para vos?  ───────────── */
+
+.longitudes__guide {
+  margin-top: 8rem;
+}
+
+.longitudes__guide-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  color: var(--color-cream);
+  text-align: center;
+}
+
+.longitudes__perfiles {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.perfil {
+  position: relative;
+  padding: 1rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.perfil + .perfil::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(200, 169, 110, 0.3);
+}
+
+.perfil__number {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: rgba(200, 169, 110, 0.35);
+}
+
+.perfil__title {
+  margin-top: 1.25rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.25;
+  color: var(--color-cream);
+}
+
+.perfil__spec {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: rgba(245, 239, 230, 0.6);
+}
+
+.perfil__spec strong {
+  font-weight: 400;
+  color: var(--color-gold);
+  letter-spacing: 0.05em;
+}
+
+/* ─────────────  RESPONSIVE  ───────────── */
+
+@media (max-width: 1024px) {
+  .longitudes {
+    padding: 6rem 3rem;
+  }
+
+  .longitudes__perfiles {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil {
+    padding: 2rem 0;
+  }
+
+  .perfil + .perfil::before {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+}
+
+@media (max-width: 768px) {
+  .longitudes {
+    padding: 5rem 1.5rem;
+  }
+
+  .longitudes__title {
+    font-size: 12vw;
+  }
+
+  .longitud-row {
+    gap: 0.75rem;
+  }
+
+  .longitud-row__value {
+    width: 56px;
+    font-size: 1.2rem;
+  }
+
+  .longitud-row__range {
+    width: 78px;
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+  }
+
+  .longitud-row__tooltip {
+    left: 56px;
+    font-size: 0.65rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .longitudes__guide {
+    margin-top: 5rem;
+  }
+
+  .longitudes__guide-title {
+    font-size: 1.8rem;
+  }
+
+  .longitudes__perfiles {
+    margin-top: 2.5rem;
+  }
+}
