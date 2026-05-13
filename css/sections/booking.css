@@ -1,0 +1,214 @@
+.booking {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding: 10rem 6rem;
+}
+
+.booking__container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ─────────────  COLUMNA IZQUIERDA  ───────────── */
+
+.booking__intro {
+  position: relative;
+}
+
+.booking__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.62rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.booking__title {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.8rem, 5.5vw, 6rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: var(--color-cream);
+}
+
+.booking__title-accent {
+  display: block;
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.booking__lead {
+  margin: 2rem 0 3.5rem;
+  max-width: 400px;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: rgba(245, 239, 230, 0.6);
+}
+
+.booking__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.1rem 3rem;
+  background: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: background 0.35s cubic-bezier(0.76, 0, 0.24, 1),
+    border-color 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.booking__cta-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.booking__cta:hover,
+.booking__cta:focus-visible {
+  background: #B8975A;
+  border-color: #B8975A;
+}
+
+/* ─────────────  COLUMNA DERECHA · INFO CARD  ───────────── */
+
+.booking__info {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  border-radius: 2px;
+  padding: 3rem 2.5rem;
+}
+
+.booking__info-block {
+  padding: 1.8rem 0;
+}
+
+.booking__info-block + .booking__info-block {
+  border-top: 1px solid rgba(200, 169, 110, 0.1);
+}
+
+.booking__info-block:first-child {
+  padding-top: 0;
+}
+
+.booking__info-block:last-child {
+  padding-bottom: 0;
+}
+
+.booking__info-label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.booking__info-value {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--color-cream);
+}
+
+.booking__info-sub {
+  margin-top: 0.3rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.8rem;
+  color: rgba(245, 239, 230, 0.5);
+}
+
+.booking__info-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  border-radius: 2px;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  transition: border-color 0.3s cubic-bezier(0.76, 0, 0.24, 1),
+    background 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.booking__info-btn:hover,
+.booking__info-btn:focus-visible {
+  border-color: var(--color-gold);
+  background: rgba(200, 169, 110, 0.06);
+}
+
+.booking__info-note {
+  padding-top: 1.5rem;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-style: italic;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: rgba(200, 169, 110, 0.5);
+}
+
+/* ─────────────  RESPONSIVE  ───────────── */
+
+@media (max-width: 1024px) {
+  .booking {
+    padding: 8rem 3rem;
+  }
+  .booking__container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .booking {
+    padding: 6rem 1.5rem;
+  }
+
+  .booking__title {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .booking__lead {
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .booking__cta {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 1.1rem 1.5rem;
+  }
+
+  .booking__info {
+    padding: 2.2rem 1.6rem;
+  }
+
+  .booking__info-value {
+    font-size: 1.3rem;
+  }
+}

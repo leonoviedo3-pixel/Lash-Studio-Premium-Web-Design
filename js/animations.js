@@ -343,6 +343,39 @@
     });
   }
 
+  // ─── Booking · two-column reveal + CTA punch ─────────────
+  function initBookingAnimations() {
+    if (!document.querySelector("#booking")) return;
+
+    const trigger = { trigger: "#booking", start: "top 80%" };
+
+    gsap.from(".booking__intro", {
+      x: -40,
+      opacity: 0,
+      duration: 1.0,
+      ease: EASE,
+      scrollTrigger: trigger,
+    });
+
+    gsap.from(".booking__info", {
+      x: 40,
+      opacity: 0,
+      duration: 1.0,
+      ease: EASE,
+      delay: 0.15,
+      scrollTrigger: trigger,
+    });
+
+    gsap.from(".booking__cta", {
+      y: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: EASE,
+      delay: 0.4,
+      scrollTrigger: trigger,
+    });
+  }
+
   // ─── Header · hide on scroll-down, show on scroll-up ─────
   function initHeaderAnimations() {
     const header = document.querySelector(".site-header");
@@ -383,6 +416,7 @@
     initGrosoresAnimations();
     initLongitudesAnimations();
     initProductosAnimations();
+    initBookingAnimations();
     initHeaderAnimations();
 
     // Re-medir tras fuentes para que las posiciones sean exactas.
