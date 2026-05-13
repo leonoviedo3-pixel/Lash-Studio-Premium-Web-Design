@@ -1,0 +1,172 @@
+.curvaturas {
+  position: relative;
+  background: var(--color-ink);
+  padding: 8rem 2rem;
+  overflow: hidden;
+}
+
+.curvaturas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+.curvaturas__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.curvaturas__header {
+  text-align: center;
+}
+
+.curvaturas__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 6vw;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  color: var(--color-cream);
+  text-transform: uppercase;
+}
+
+.curvaturas__subtitle {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--color-nude);
+  letter-spacing: 0.05em;
+}
+
+.curvaturas__divider {
+  width: 60px;
+  height: 1px;
+  background: var(--color-gold);
+  border: 0;
+  margin: 2rem auto;
+}
+
+.curvaturas__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 4rem;
+}
+
+.curvatura-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(200, 169, 110, 0.15);
+  border-radius: 2px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.curvatura-card__svg {
+  height: 60px;
+  width: auto;
+  margin-bottom: 1.5rem;
+  stroke: var(--color-gold);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.5s var(--ease-luxury);
+}
+
+.curvatura-card__code {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 2.8rem;
+  line-height: 1;
+  color: var(--color-cream);
+}
+
+.curvatura-card__name {
+  margin-top: 0.3rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-nude);
+}
+
+.curvatura-card__desc {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(245, 239, 230, 0.6);
+}
+
+.curvatura-card__badge {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: rgba(200, 169, 110, 0.12);
+  border: 1px solid var(--color-gold);
+  border-radius: 2px;
+}
+
+.curvatura-card:hover {
+  border-color: rgba(200, 169, 110, 0.5);
+  background: rgba(200, 169, 110, 0.05);
+}
+
+.curvatura-card:hover .curvatura-card__svg {
+  stroke: var(--color-cream);
+}
+
+@media (max-width: 1024px) {
+  .curvaturas__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .curvaturas {
+    padding: 5rem 1.25rem;
+  }
+
+  .curvaturas__title {
+    font-size: 11vw;
+  }
+
+  .curvaturas__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .curvatura-card {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .curvatura-card__svg {
+    height: 48px;
+  }
+
+  .curvatura-card__code {
+    font-size: 2.2rem;
+  }
+}
