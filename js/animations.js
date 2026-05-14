@@ -87,6 +87,61 @@
     });
   }
 
+  // ─── About · split reveal (visual + text columns) ────────
+  function initAboutAnimations() {
+    if (!document.querySelector("#about")) return;
+
+    const visualTrigger = { trigger: "#about", start: "top 82%" };
+    const textTrigger = { trigger: "#about .about-text", start: "top 85%" };
+
+    gsap.from(".about-visual", {
+      x: -50,
+      opacity: 0,
+      duration: 1.2,
+      ease: EASE,
+      scrollTrigger: visualTrigger,
+    });
+
+    gsap.from(".about__frame", {
+      scale: 0.8,
+      opacity: 0,
+      duration: 1.0,
+      ease: EASE,
+      delay: 0.2,
+      scrollTrigger: visualTrigger,
+    });
+
+    gsap.from(
+      [".about__eyebrow", ".about__title", ".about__paragraph"],
+      {
+        y: 30,
+        opacity: 0,
+        duration: 1.0,
+        ease: EASE,
+        stagger: 0.12,
+        scrollTrigger: textTrigger,
+      }
+    );
+
+    gsap.from(".about__pull", {
+      x: -20,
+      opacity: 0,
+      duration: 1.0,
+      ease: EASE,
+      delay: 0.3,
+      scrollTrigger: textTrigger,
+    });
+
+    gsap.from(".about__cred", {
+      x: 20,
+      opacity: 0,
+      duration: 0.8,
+      ease: EASE,
+      stagger: 0.08,
+      scrollTrigger: textTrigger,
+    });
+  }
+
   // ─── Servicios placeholder · subtle fade ─────────────────
   function initServiciosAnimations() {
     if (!document.querySelector("#servicios")) return;
@@ -418,6 +473,7 @@
     initLenis();
 
     initHeroAnimations();
+    initAboutAnimations();
     initServiciosAnimations();
     initCurvaturasAnimations();
     initGrosoresAnimations();
