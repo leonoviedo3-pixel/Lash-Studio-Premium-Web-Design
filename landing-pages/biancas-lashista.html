@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bianca's Lashista — Studio profesional de pestañas pelo por pelo. Colocaciones con técnica certificada e insumos premium que duran 3 a 4 semanas y cuidan tu pestaña natural." />
+  <title>Bianca's Lashista — Studio profesional de pestañas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:            #1A1411;
+      --bg-mid:        #241B17;
+      --primary:       #D4B896;
+      --primary-soft:  #C9A87C;
+      --primary-glow:  rgba(212, 184, 150, 0.14);
+      --accent:        #E8C4B8;
+      --off-white:     #F5EFE6;
+      --text-muted:    rgba(245, 239, 230, 0.68);
+      --card-bg:       rgba(212, 184, 150, 0.05);
+      --card-border:   rgba(212, 184, 150, 0.18);
+
+      --text-hero:  clamp(52px, 8vw, 82px);
+      --text-h2:    clamp(32px, 4.5vw, 52px);
+      --text-h3:    clamp(18px, 2.5vw, 24px);
+      --text-body:  16px;
+      --text-label: 11px;
+      --letter-spacing-label: 0.14em;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--off-white);
+      font-size: var(--text-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 48px; }
+    section    { padding: 120px 0; position: relative; }
+    a          { color: inherit; }
+
+    /* ─── Navbar ──────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 48px;
+      background: rgba(26, 20, 17, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .navbar-brand {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--off-white);
+      letter-spacing: 0.01em;
+      text-decoration: none;
+    }
+    .navbar-brand-accent { color: var(--primary); }
+    .navbar-cta {
+      font-size: var(--text-label);
+      font-weight: 600;
+      letter-spacing: var(--letter-spacing-label);
+      text-transform: uppercase;
+      color: var(--primary);
+      padding: 10px 22px;
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.25s, border-color 0.25s, color 0.25s;
+    }
+    .navbar-cta:hover,
+    .navbar-cta:focus-visible {
+      background: var(--primary-glow);
+      border-color: var(--primary);
+      outline: none;
+    }
+
+    /* ─── Components base ─────────────────────────────────── */
+    .eyebrow {
+      display: inline-block;
+      font-size: var(--text-label);
+      font-weight: 600;
+      letter-spacing: var(--letter-spacing-label);
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: var(--bg);
+      font-family: 'Inter', sans-serif;
+      font-size: var(--text-label);
+      font-weight: 700;
+      letter-spacing: var(--letter-spacing-label);
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+    .btn-primary:hover {
+      opacity: 0.92;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--primary-glow);
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+    }
+    .btn-primary svg {
+      transition: transform 0.25s ease;
+    }
+    .btn-primary:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ─── Hero ─────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 96px 24px 80px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, var(--primary-glow), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-shapes-back,
+    .hero-shapes-mid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      will-change: transform;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid var(--primary);
+    }
+    .shape-a {
+      width: 540px; height: 540px;
+      top: -140px; right: -180px;
+      opacity: 0.18;
+      animation: floatA 7s ease-in-out infinite;
+    }
+    .shape-b {
+      width: 360px; height: 360px;
+      bottom: -120px; left: -120px;
+      opacity: 0.12;
+      animation: floatB 9s ease-in-out infinite 1.5s;
+    }
+    .shape-c {
+      width: 240px; height: 240px;
+      top: 32%; left: 56%;
+      border-color: var(--accent);
+      opacity: 0.16;
+      background: radial-gradient(circle, var(--primary-glow), transparent 70%);
+      animation: floatC 6s ease-in-out infinite 3s;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
+      width: 100%;
+      will-change: transform;
+    }
+    .hero-title {
+      font-size: var(--text-hero);
+      font-weight: 800;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      color: var(--off-white);
+      margin-bottom: 24px;
+    }
+    .hero-title-accent { color: var(--primary); }
+    .hero-sub {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 660px;
+      margin: 0 auto 40px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--text-muted);
+      animation: bounce 2s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* ─── Features ─────────────────────────────────────────── */
+    .features { background: var(--bg); }
+    .features-inner { max-width: 1120px; }
+    .features h2 {
+      font-size: var(--text-h2);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.022em;
+      color: var(--off-white);
+      max-width: 740px;
+      margin-bottom: 16px;
+    }
+    .features-sublead {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      perspective: 1200px;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 36px 32px;
+      transition: transform 0.3s ease, border-color 0.25s, box-shadow 0.3s;
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 40px var(--primary-glow);
+    }
+    .feature-icon {
+      width: 28px;
+      height: 28px;
+      stroke: var(--primary);
+      stroke-width: 1.8;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 22px;
+      display: block;
+    }
+    .feature-card h3 {
+      font-size: var(--text-h3);
+      font-weight: 700;
+      color: var(--off-white);
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+    .feature-card p {
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-size: 15px;
+    }
+
+    /* ─── Closing CTA ──────────────────────────────────────── */
+    .closing-cta {
+      background: var(--bg-mid);
+      text-align: center;
+      overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, var(--primary-glow), transparent 55%);
+      pointer-events: none;
+    }
+    .closing-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .closing-title {
+      font-size: clamp(40px, 5vw, 62px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--off-white);
+      margin-bottom: 18px;
+    }
+    .closing-sub {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 40px;
+    }
+
+    /* ─── Footer ───────────────────────────────────────────── */
+    .site-footer {
+      padding: 36px 0;
+      text-align: center;
+      border-top: 1px solid var(--card-border);
+      background: var(--bg);
+    }
+    .site-footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── Keyframes ────────────────────────────────────────── */
+    @keyframes floatA {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-28px) rotate(8deg); }
+    }
+    @keyframes floatB {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-18px) rotate(-12deg); }
+    }
+    @keyframes floatC {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-22px) scale(1.06); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0);    opacity: 0.55; }
+      50%      { transform: translateX(-50%) translateY(10px); opacity: 1; }
+    }
+
+    /* ─── Responsive ───────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .container { padding: 0 32px; }
+      .navbar    { padding: 14px 32px; }
+      section    { padding: 80px 0; }
+      .hero      { padding: 100px 24px 72px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero-sub { font-size: 16px; }
+      .shape-a { width: 380px; height: 380px; top: -100px; right: -140px; }
+      .shape-b { width: 280px; height: 280px; }
+      .shape-c { width: 180px; height: 180px; }
+    }
+
+    @media (max-width: 580px) {
+      .container { padding: 0 20px; }
+      .navbar    { padding: 12px 20px; }
+      .navbar-cta { display: none; }
+      section    { padding: 72px 0; }
+      .hero      { padding: 96px 20px 64px; }
+      .btn-primary { padding: 14px 28px; }
+      .feature-card { padding: 28px 24px; }
+      .closing-cta { padding: 72px 0; }
+      .features-grid { margin-top: 40px; }
+    }
+
+    /* ─── Reduced motion ───────────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar" role="banner">
+    <a href="#top" class="navbar-brand" aria-label="Bianca's Lashista, ir al inicio">
+      Bianca's <span class="navbar-brand-accent">Lashista</span>
+    </a>
+    <a href="#agendar" class="navbar-cta">Agendar</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ───── Hero ──────────────────────────────────────────── -->
+    <section class="hero" aria-label="Introducción del studio">
+      <div class="hero-shapes-back" aria-hidden="true">
+        <div class="shape shape-a"></div>
+        <div class="shape shape-b"></div>
+      </div>
+      <div class="hero-shapes-mid" aria-hidden="true">
+        <div class="shape shape-c"></div>
+      </div>
+
+      <div class="hero-content">
+        <span class="eyebrow hero-eyebrow">Studio profesional — Técnica pelo por pelo</span>
+        <h1 class="hero-title">
+          Técnica pelo por pelo. Resultado que se ve <span class="hero-title-accent">tuyo.</span>
+        </h1>
+        <p class="hero-sub">
+          Bianca's Lashista combina precisión técnica certificada e insumos de grado premium para colocaciones que duran, cuidan tu pestaña natural y se adaptan al diseño de tu mirada.
+        </p>
+        <a href="#agendar" class="btn-primary hero-cta">
+          Agendar cita
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Indicador de desplazamiento hacia abajo">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ───── Features ───────────────────────────────────────── -->
+    <section class="features reveal-section" aria-label="Por qué elegir Bianca's Lashista">
+      <div class="container features-inner">
+        <span class="eyebrow">Por qué elegir el studio</span>
+        <h2>Cada extensión es una decisión técnica.</h2>
+        <p class="features-sublead">
+          No aplicamos un set genérico. Diseñamos según la morfología de tus ojos y la salud real de tu pestaña natural.
+        </p>
+
+        <div class="features-grid stagger-group">
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 32 32" aria-label="Ojo estilizado con línea de mapeo morfológico">
+              <path d="M2.5 16 C 8 8, 24 8, 29.5 16 C 24 24, 8 24, 2.5 16 Z" />
+              <circle cx="16" cy="16" r="3.5" />
+              <path d="M5.5 9.5 L 26.5 22.5" />
+            </svg>
+            <h3>Diseño según tu morfología</h3>
+            <p>Antes de colocar la primera pestaña realizamos un mapeo del ojo para definir curvatura, largo y volumen acordes a tu forma natural. No usamos un set predefinido para todas las clientas.</p>
+          </article>
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 32 32" aria-label="Frasco de insumos premium con etiqueta">
+              <path d="M11 4 L 21 4" />
+              <path d="M12 4 L 12 9 L 9 14 L 9 26 A 2 2 0 0 0 11 28 L 21 28 A 2 2 0 0 0 23 26 L 23 14 L 20 9 L 20 4" />
+              <line x1="11" y1="20" x2="21" y2="20" />
+            </svg>
+            <h3>Insumos de grado premium</h3>
+            <p>Trabajamos con fibras, adhesivos y removedores testeados para retención prolongada sin comprometer la integridad de la pestaña natural. Cada producto pasa por nuestro estándar antes de tocar tu mirada.</p>
+          </article>
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 32 32" aria-label="Reloj indicando duración de tres a cuatro semanas">
+              <circle cx="16" cy="16" r="12" />
+              <path d="M16 8 L 16 16 L 21 19" />
+            </svg>
+            <h3>Retención de 3 a 4 semanas</h3>
+            <p>Técnica pelo por pelo correctamente ejecutada más insumos premium significan más tiempo entre mantenimientos. Tu inversión rinde más y tu pestaña natural se mantiene saludable.</p>
+          </article>
+
+          <article class="feature-card">
+            <svg class="feature-icon" viewBox="0 0 32 32" aria-label="Calendario con check de mantenimiento programado">
+              <rect x="4" y="6" width="24" height="22" rx="2" />
+              <line x1="4" y1="12" x2="28" y2="12" />
+              <line x1="10" y1="3" x2="10" y2="9" />
+              <line x1="22" y1="3" x2="22" y2="9" />
+              <path d="M12 20 L 15 23 L 21 17" />
+            </svg>
+            <h3>Mantenimientos planificados</h3>
+            <p>Salís del studio con tu próximo turno reservado y una guía clara de cuidado posterior. Sin retoques de emergencia ni sets que se caen antes de tiempo.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ───── Closing CTA ────────────────────────────────────── -->
+    <section id="agendar" class="closing-cta reveal-section" aria-label="Reserva tu primera cita">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="container closing-inner">
+        <h2 class="closing-title">Reservá tu primera cita.</h2>
+        <p class="closing-sub">
+          Diseñamos juntas el set que se adapta a tu mirada antes de colocar la primera pestaña. Consulta inicial sin cargo.
+        </p>
+        <!-- TODO: reemplazar href por enlace real (WhatsApp / formulario de booking) -->
+        <a href="#" class="btn-primary closing-btn">
+          Agendar cita
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>Bianca's Lashista · Studio profesional de pestañas pelo por pelo · Insumos premium</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Anti-FOUC: ocultar antes de animar
+      gsap.set(
+        ['.hero-eyebrow', '.hero-title', '.hero-sub', '.hero-cta', '.scroll-indicator'],
+        { opacity: 0, y: 30 }
+      );
+
+      // Hero entrance
+      const heroTL = gsap.timeline({ delay: 0.2 });
+      heroTL
+        .to('.hero-eyebrow',     { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' })
+        .to('.hero-title',       { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, '-=0.3')
+        .to('.hero-sub',         { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+        .to('.hero-cta',         { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.3')
+        .to('.scroll-indicator', { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, '-=0.1');
+
+      // Mouse parallax (solo punteros finos)
+      if (window.matchMedia('(pointer: fine)').matches) {
+        document.addEventListener('mousemove', function (e) {
+          const cx = window.innerWidth / 2;
+          const cy = window.innerHeight / 2;
+          const dx = (e.clientX - cx) / cx;
+          const dy = (e.clientY - cy) / cy;
+
+          gsap.to('.hero-shapes-back', { x: dx * 45, y: dy * 22, duration: 1, ease: 'power1.out' });
+          gsap.to('.hero-shapes-mid',  { x: dx * 22, y: dy * 11, duration: 1, ease: 'power1.out' });
+          gsap.to('.hero-content',     { x: dx * 8,  y: dy * 5,  duration: 1, ease: 'power1.out' });
+        });
+      }
+
+      // Stagger reveal de feature cards
+      gsap.utils.toArray('.stagger-group').forEach(function (group) {
+        const cards = group.querySelectorAll('.feature-card');
+        gsap.from(cards, {
+          opacity: 0,
+          y: 55,
+          rotateX: 18,
+          duration: 0.7,
+          ease: 'power2.out',
+          stagger: 0.11,
+          scrollTrigger: {
+            trigger: group,
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+          }
+        });
+      });
+
+      // Fade-up de secciones con .reveal-section (excluye las que ya manejan sus hijos)
+      gsap.utils.toArray('.reveal-section').forEach(function (section) {
+        if (section.querySelector('.stagger-group')) return;
+        gsap.from(section, {
+          opacity: 0,
+          y: 40,
+          duration: 0.9,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 82%',
+            toggleActions: 'play none none none'
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
