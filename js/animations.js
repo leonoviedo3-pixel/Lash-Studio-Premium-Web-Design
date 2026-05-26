@@ -2,7 +2,37 @@
  * Lash Studio BJ · animations.js
  * ES2023+ vanilla JS sin dependencias propias (GSAP + Lenis vía CDN).
  * Las funciones init* se llaman desde init() al cargar el documento.
+ *
+ * Tipos vía JSDoc (sin TypeScript ni build step) — aprovecha la verificación
+ * de tipos que IDEs como VS Code hacen out-of-the-box sobre código anotado.
+ *
+ * @typedef {Object} GsapStatic Subset que usamos de GSAP 3.
+ * @property {(target: unknown, vars: object) => unknown} to
+ * @property {(target: unknown, fromVars: object, toVars: object) => unknown} fromTo
+ * @property {(target: unknown, vars: object) => unknown} from
+ * @property {(target: unknown, vars: object) => unknown} set
+ * @property {(opts?: object) => GsapTimeline} timeline
+ * @property {(plugin: unknown) => void} registerPlugin
+ * @property {{ toArray: (sel: string) => Element[] }} utils
+ * @property {{ add: (cb: (t: number) => void) => void, lagSmoothing: (n: number) => void }} ticker
+ * @property {{ timeScale: (n: number) => void }} globalTimeline
+ * @property {(target: Element, prop: string, opts: object) => (v: number) => void} quickTo
+ *
+ * @typedef {Object} GsapTimeline
+ * @property {(target: unknown, vars: object, position?: number|string) => GsapTimeline} from
+ * @property {(target: unknown, vars: object, position?: number|string) => GsapTimeline} to
+ *
+ * @typedef {Object} ScrollTriggerStatic
+ * @property {(opts: object) => unknown} create
+ * @property {() => void} refresh
+ * @property {() => void} update
+ * @property {(opts: object) => void} config
+ *
+ * @typedef {{ trigger: Element|string, start?: string, end?: string, scrub?: boolean|number, toggleActions?: string, onEnter?: () => void, onLeaveBack?: () => void }} STConfig
  */
+
+/* global gsap, ScrollTrigger, Lenis */
+
 (() => {
   "use strict";
 
@@ -19,9 +49,11 @@
   const PREFERS_REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const SUPPORTS_HOVER = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+  /** @type {unknown} Instancia de Lenis (null si no cargó). */
   let lenis = null;
 
   // ─── Preloader · exit luego de fonts + raf inicial ───────
+  /** @returns {void} */
   function initPreloader() {
     const pre = document.querySelector(".preloader");
     if (!pre) return;
@@ -186,16 +218,28 @@
     const slider = stage.querySelector(".comparador__slider");
     if (!slider) return;
 
+    /** @param {number|string} value */
     const update = (value) => {
       stage.style.setProperty("--pos", `${value}%`);
     };
 
-    slider.addEventListener("input", (e) => update(e.target.value));
+    /** Tween de entrada — guardamos referencia para poder cancelarlo si el
+     *  usuario interactúa antes de que termine. */
+    let entranceTween = null;
+
+    slider.addEventListener("input", (e) => {
+      // Cancelar el entrance tween en cuanto el usuario toma control.
+      if (entranceTween) {
+        entranceTween.kill();
+        entranceTween = null;
+      }
+      update(/** @type {HTMLInputElement} */ (e.target).value);
+    });
     update(slider.value);
 
-    // Entrada animada: handle barre de derecha a izquierda y se detiene en 50%
+    // Entrada animada: barre de derecha a centro al entrar en viewport.
     if (!PREFERS_REDUCED) {
-      gsap.fromTo(
+      entranceTween = gsap.fromTo(
         stage,
         { "--pos": "100%" },
         {
@@ -205,8 +249,9 @@
           scrollTrigger: { trigger: stage, start: "top 75%" },
           onUpdate() {
             const v = this.targets()[0].style.getPropertyValue("--pos");
-            slider.value = parseFloat(v) || 50;
+            slider.value = String(parseFloat(v) || 50);
           },
+          onComplete() { entranceTween = null; },
         }
       );
     }
@@ -221,16 +266,17 @@
       const target = Number(el.dataset.target);
       if (!Number.isFinite(target)) return;
 
+      // No-flash fix: el HTML inicial trae el valor final (fallback para
+      // usuarios sin JS). En cuanto JS arranca reseteamos a 0 — antes de
+      // que el usuario pueda ver el número final flashear y volver a 0.
+      el.textContent = "0";
+
       const proxy = { value: 0 };
       gsap.to(proxy, {
         value: target,
         duration: 2.2,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start: "top 85%",
-          onEnter: () => { el.textContent = "0"; },
-        },
+        scrollTrigger: { trigger: el, start: "top 85%" },
         onUpdate() {
           el.textContent = Math.floor(proxy.value).toLocaleString("es-AR");
         },
@@ -477,6 +523,17 @@
     }
     if (typeof ScrollTrigger !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
+    }
+
+    // Respeto a prefers-reduced-motion: aplicamos timeScale extremo a
+    // todas las animaciones GSAP futuras y a las existentes. Las
+    // posiciones finales se preservan (no se rompe layout), sólo el
+    // movimiento desaparece.
+    if (PREFERS_REDUCED) {
+      gsap.globalTimeline.timeScale(100);
+      ScrollTrigger.config({ ignoreMobileResize: true });
+      // Sacar el preloader inmediato — la animación de drawing no va a verse.
+      document.querySelector(".preloader")?.classList.add("is-gone");
     }
 
     initPreloader();
