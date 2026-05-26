@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Lash Studio BJ — Soft Luxury Lashes. El salón de pestañas más grande y profesional de Argentina." />
-  <title>Lash Studio BJ — Soft Luxury Lashes</title>
+  <meta name="description" content="Lash Studio BJ — Soft Luxury Lashes. Pelo a pelo, volumen ruso, lifting y cejas. Cruz del Eje, Córdoba, Argentina." />
+  <title>Lash Studio BJ — Soft Luxury Lashes · Cruz del Eje</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,29 +14,90 @@
   />
 
   <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/sections/atmosphere.css" />
   <link rel="stylesheet" href="css/sections/hero.css" />
   <link rel="stylesheet" href="css/sections/about.css" />
+  <link rel="stylesheet" href="css/sections/carta.css" />
   <link rel="stylesheet" href="css/sections/curvaturas.css" />
   <link rel="stylesheet" href="css/sections/grosores.css" />
   <link rel="stylesheet" href="css/sections/longitudes.css" />
+  <link rel="stylesheet" href="css/sections/stats.css" />
   <link rel="stylesheet" href="css/sections/productos.css" />
+  <link rel="stylesheet" href="css/sections/comparador.css" />
+  <link rel="stylesheet" href="css/sections/testimonios.css" />
+  <link rel="stylesheet" href="css/sections/faq.css" />
   <link rel="stylesheet" href="css/sections/booking.css" />
   <link rel="stylesheet" href="css/sections/footer.css" />
 </head>
 <body>
+
+  <!-- ════════ ATMÓSFERA GLOBAL ════════ -->
+  <div class="preloader" aria-hidden="true">
+    <svg class="preloader__mark" viewBox="0 0 200 200" aria-hidden="true">
+      <path d="M55 40 L55 130 Q55 160 85 160 Q115 160 115 130 L115 90 Q115 70 95 70 Q75 70 75 90" />
+      <path d="M125 40 L125 130 Q125 160 95 160" opacity="0.7" />
+    </svg>
+    <div class="preloader__count">B · J · ESTUDIO</div>
+  </div>
+
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__ring"></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <nav class="section-nav" aria-label="Navegación de secciones">
+    <a class="section-nav__item" href="#hero" data-section="hero">
+      <span class="section-nav__label">Inicio</span>
+    </a>
+    <a class="section-nav__item" href="#about" data-section="about">
+      <span class="section-nav__label">Sobre BJ</span>
+    </a>
+    <a class="section-nav__item" href="#servicios" data-section="servicios">
+      <span class="section-nav__label">Carta</span>
+    </a>
+    <a class="section-nav__item" href="#curvaturas" data-section="curvaturas">
+      <span class="section-nav__label">Curvaturas</span>
+    </a>
+    <a class="section-nav__item" href="#grosores" data-section="grosores">
+      <span class="section-nav__label">Grosores</span>
+    </a>
+    <a class="section-nav__item" href="#longitudes" data-section="longitudes">
+      <span class="section-nav__label">Longitudes</span>
+    </a>
+    <a class="section-nav__item" href="#productos" data-section="productos">
+      <span class="section-nav__label">Productos</span>
+    </a>
+    <a class="section-nav__item" href="#comparador" data-section="comparador">
+      <span class="section-nav__label">Antes / Después</span>
+    </a>
+    <a class="section-nav__item" href="#testimonios" data-section="testimonios">
+      <span class="section-nav__label">Testimonios</span>
+    </a>
+    <a class="section-nav__item" href="#faq" data-section="faq">
+      <span class="section-nav__label">Preguntas</span>
+    </a>
+    <a class="section-nav__item" href="#booking" data-section="booking">
+      <span class="section-nav__label">Reservar</span>
+    </a>
+  </nav>
+
+  <!-- ════════ HEADER ════════ -->
   <header class="site-header">
     <div class="site-header__brand">Lash Studio BJ</div>
     <nav class="site-header__nav" aria-label="Principal">
-      <a href="#servicios">Servicios</a>
+      <a href="#servicios">Carta</a>
       <a href="#curvaturas">Curvaturas</a>
       <a href="#grosores">Grosores</a>
       <a href="#longitudes">Longitudes</a>
       <a href="#productos">Productos</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#booking">Reservar</a>
     </nav>
   </header>
 
   <main>
+    <!-- ════════ HERO ════════ -->
     <section id="hero" class="hero" aria-labelledby="hero-heading">
       <div class="hero__circle hero__circle--xl" aria-hidden="true"></div>
       <div class="hero__circle hero__circle--lg" aria-hidden="true"></div>
@@ -62,10 +123,10 @@
           </span>
         </h1>
 
-        <p class="hero__sub">Extensiones · Lifting · Tratamientos</p>
+        <p class="hero__sub">Extensiones · Lifting · Cejas · Tratamientos</p>
 
         <a
-          class="hero__cta"
+          class="hero__cta magnetic"
           href="https://wa.me/543549632202?text=Hola%20BJ!%20Vi%20tu%20sitio%20y%20quiero%20reservar%20un%20turno%20🌿"
           target="_blank"
           rel="noopener"
@@ -81,6 +142,21 @@
       </div>
     </section>
 
+    <!-- ════════ MARQUEE DE LUJO ════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>El arte de la mirada</span><span class="marquee__star">✦</span>
+        <span>Soft luxury lashes</span><span class="marquee__star">✦</span>
+        <span>Pelo a pelo · Volumen ruso · Lifting</span><span class="marquee__star">✦</span>
+        <span>Cruz del Eje · Córdoba</span><span class="marquee__star">✦</span>
+        <span>El arte de la mirada</span><span class="marquee__star">✦</span>
+        <span>Soft luxury lashes</span><span class="marquee__star">✦</span>
+        <span>Pelo a pelo · Volumen ruso · Lifting</span><span class="marquee__star">✦</span>
+        <span>Cruz del Eje · Córdoba</span><span class="marquee__star">✦</span>
+      </div>
+    </div>
+
+    <!-- ════════ ABOUT ════════ -->
     <section id="about" class="about" aria-labelledby="about-title">
       <div class="about__container">
         <div class="about-visual">
@@ -112,7 +188,7 @@
             </li>
             <li class="about__cred">
               <span class="about__cred-mark" aria-hidden="true">·</span>
-              <span class="about__cred-text">Más de [X] clientas satisfechas en todo el país</span>
+              <span class="about__cred-text">Miles de clientas atendidas en todo el país</span>
             </li>
             <li class="about__cred">
               <span class="about__cred-mark" aria-hidden="true">·</span>
@@ -127,11 +203,167 @@
       </div>
     </section>
 
-    <section id="servicios">
-      <h2 class="servicios__title">Servicios</h2>
-      <p class="servicios__note">Próximamente</p>
+    <!-- ════════ CARTA DE SERVICIOS (reemplaza placeholder) ════════ -->
+    <section id="servicios" class="carta" aria-labelledby="carta-title">
+      <div class="carta__container">
+        <header class="carta__header">
+          <span class="carta__eyebrow">03 — La carta</span>
+          <h2 id="carta-title" class="carta__title">
+            Servicios <span class="carta__title-accent">de la casa.</span>
+          </h2>
+          <p class="carta__sub">Cada uno diseñado con criterio. Ninguno improvisado.</p>
+        </header>
+
+        <ol class="carta__grid">
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">01</span>
+                <h3 class="carta-item__name">Pelo a Pelo · Classic</h3>
+              </div>
+              <span class="carta-item__duration">~ 2 hs</span>
+            </div>
+            <p class="carta-item__desc">Una extensión por pestaña natural. Densidad refinada, look diario que pasa desapercibido pero transforma.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Pelo%20a%20Pelo%20Classic" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">02</span>
+                <h3 class="carta-item__name">Volumen Ruso 2D – 3D</h3>
+              </div>
+              <span class="carta-item__duration">~ 2:30 hs</span>
+            </div>
+            <p class="carta-item__desc">Fans hechos a mano, dos o tres extensiones ultra finas por pestaña. Definición con cuerpo, sin perder naturalidad.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Volumen%20Ruso" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">03</span>
+                <h3 class="carta-item__name">Mega Volumen 4D – 6D</h3>
+              </div>
+              <span class="carta-item__duration">~ 3 hs</span>
+            </div>
+            <p class="carta-item__desc">Máximo cuerpo y densidad. Para mirada editorial, eventos o quien busca un statement.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Mega%20Volumen" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">04</span>
+                <h3 class="carta-item__name">Hybrid</h3>
+              </div>
+              <span class="carta-item__duration">~ 2:30 hs</span>
+            </div>
+            <p class="carta-item__desc">Mezcla 50/50 de pelo a pelo y volumen. Textura híbrida, lo mejor de ambos mundos.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Hybrid" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">05</span>
+                <h3 class="carta-item__name">Lifting de Pestañas</h3>
+              </div>
+              <span class="carta-item__duration">~ 1:15 hs</span>
+            </div>
+            <p class="carta-item__desc">Rizado permanente sobre tu pestaña natural. Sin extensiones, máxima apertura de mirada.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Lifting%20de%20Pestañas" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">06</span>
+                <h3 class="carta-item__name">Lifting + Tinte</h3>
+              </div>
+              <span class="carta-item__duration">~ 1:30 hs</span>
+            </div>
+            <p class="carta-item__desc">Lifting con teñido profesional. Profundiza el color y refuerza la definición.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Lifting%20más%20Tinte" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">07</span>
+                <h3 class="carta-item__name">Retoque de Mantenimiento</h3>
+              </div>
+              <span class="carta-item__duration">~ 1:15 hs</span>
+            </div>
+            <p class="carta-item__desc">Cada dos o tres semanas, repone la densidad y prolonga la vida del set original.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Retoque%20de%20Mantenimiento" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">08</span>
+                <h3 class="carta-item__name">Laminado de Cejas</h3>
+              </div>
+              <span class="carta-item__duration">~ 1 h</span>
+            </div>
+            <p class="carta-item__desc">Alisado y modelado de cejas. Forma definida, look ordenado por seis a ocho semanas.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Laminado%20de%20Cejas" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">09</span>
+                <h3 class="carta-item__name">Tinte + Perfilado de Cejas</h3>
+              </div>
+              <span class="carta-item__duration">~ 45 min</span>
+            </div>
+            <p class="carta-item__desc">Color y forma combinados. Diseño según la morfología de tu rostro.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Tinte%20más%20Perfilado%20de%20Cejas" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+
+          <li class="carta-item">
+            <div class="carta-item__head">
+              <div class="carta-item__name-wrap">
+                <span class="carta-item__num">10</span>
+                <h3 class="carta-item__name">Retiro Profesional</h3>
+              </div>
+              <span class="carta-item__duration">~ 40 min</span>
+            </div>
+            <p class="carta-item__desc">Removedor profesional para extensiones aplicadas en otro estudio, sin dañar la pestaña natural.</p>
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Retiro%20Profesional" target="_blank" rel="noopener">
+              Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+
+        <p class="carta__footnote">
+          <span class="carta__footnote-rule" aria-hidden="true"></span>
+          Cada turno incluye diagnóstico de pestaña natural y diseño personalizado sin cargo.
+        </p>
+      </div>
     </section>
 
+    <!-- ════════ CURVATURAS ════════ -->
     <section id="curvaturas" class="curvaturas" aria-labelledby="curvaturas-title">
       <div class="curvaturas__container">
         <header class="curvaturas__header">
@@ -235,6 +467,7 @@
       </div>
     </section>
 
+    <!-- ════════ GROSORES & EFECTOS ════════ -->
     <section id="grosores" class="grosores" aria-labelledby="grosores-title">
       <div class="grosores__container">
         <header>
@@ -390,6 +623,7 @@
       </div>
     </section>
 
+    <!-- ════════ LONGITUDES ════════ -->
     <section id="longitudes" class="longitudes" aria-labelledby="longitudes-title">
       <div class="longitudes__container">
         <header>
@@ -568,6 +802,47 @@
       </div>
     </section>
 
+    <!-- ════════ STATS · CONTADORES ════════ -->
+    <section id="stats" class="stats" aria-label="Métricas del estudio">
+      <div class="stats__container">
+        <p class="stats__eyebrow">El estudio en números</p>
+        <div class="stats__grid">
+          <div class="stat">
+            <div class="stat__value">
+              <span class="stat__num" data-target="3000">3.000</span>
+              <span class="stat__suffix">+</span>
+            </div>
+            <div class="stat__label">Clientas atendidas</div>
+            <span class="stat__line" aria-hidden="true"></span>
+          </div>
+          <div class="stat">
+            <div class="stat__value">
+              <span class="stat__num" data-target="7">7</span>
+            </div>
+            <div class="stat__label">Años de oficio</div>
+            <span class="stat__line" aria-hidden="true"></span>
+          </div>
+          <div class="stat">
+            <div class="stat__value">
+              <span class="stat__num" data-target="4">4</span>
+              <span class="stat__suffix">sem</span>
+            </div>
+            <div class="stat__label">Retención promedio</div>
+            <span class="stat__line" aria-hidden="true"></span>
+          </div>
+          <div class="stat">
+            <div class="stat__value">
+              <span class="stat__num" data-target="50">50</span>
+              <span class="stat__suffix">+</span>
+            </div>
+            <div class="stat__label">Productos curados</div>
+            <span class="stat__line" aria-hidden="true"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ PRODUCTOS ════════ -->
     <section id="productos" class="productos" aria-labelledby="productos-title">
       <div class="productos__container">
         <header class="productos__header">
@@ -822,15 +1097,229 @@
         <div class="productos__cta">
           <h3 class="productos__cta-title">¿Buscás un producto específico?</h3>
           <p class="productos__cta-sub">Escribinos y te asesoramos sin cargo.</p>
-          <a href="#contacto" class="productos__cta-btn">Consultanos</a>
+          <a href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener" class="productos__cta-btn magnetic">Consultanos</a>
         </div>
       </div>
     </section>
 
+    <!-- ════════ COMPARADOR ANTES / DESPUÉS ════════ -->
+    <section id="comparador" class="comparador" aria-labelledby="comparador-title">
+      <div class="comparador__container">
+        <header class="comparador__header">
+          <span class="comparador__eyebrow">Mirá la diferencia</span>
+          <h2 id="comparador-title" class="comparador__title">
+            Antes / <span class="comparador__title-accent">después</span>
+          </h2>
+          <p class="comparador__sub">Deslizá el centro para comparar la mirada.</p>
+        </header>
+
+        <div class="comparador__stage" data-comparador>
+          <div class="comparador__layer comparador__layer--antes" aria-hidden="true">
+            <svg class="comparador__lashes-natural" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
+              <path d="M 30 130 Q 200 70 370 130" fill="none" stroke="#9c8979" stroke-width="2.5" stroke-linecap="round" />
+              <g stroke="#c9a98a" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.65">
+                <path d="M 80 128 L 78 108" />
+                <path d="M 110 122 L 108 102" />
+                <path d="M 140 116 L 139 96" />
+                <path d="M 170 112 L 170 92" />
+                <path d="M 200 110 L 200 90" />
+                <path d="M 230 112 L 231 92" />
+                <path d="M 260 116 L 262 96" />
+                <path d="M 290 122 L 293 102" />
+                <path d="M 320 128 L 324 108" />
+              </g>
+            </svg>
+          </div>
+          <div class="comparador__layer comparador__layer--despues" aria-hidden="true">
+            <svg class="comparador__lashes-premium" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
+              <path d="M 30 130 Q 200 70 370 130" fill="none" stroke="#c8a96e" stroke-width="2.5" stroke-linecap="round" />
+              <g stroke="#f5efe6" stroke-width="1" stroke-linecap="round" fill="none" opacity="0.95">
+                <path d="M 60 130 Q 58 105 50 78" />
+                <path d="M 75 128 Q 75 100 70 72" />
+                <path d="M 90 125 Q 92 95 90 65" />
+                <path d="M 105 122 Q 110 90 112 60" />
+                <path d="M 120 118 Q 128 85 134 55" />
+                <path d="M 135 115 Q 145 80 154 50" />
+                <path d="M 150 112 Q 162 75 172 46" />
+                <path d="M 165 110 Q 178 70 188 42" />
+                <path d="M 180 108 Q 192 68 200 40" />
+                <path d="M 200 108 Q 200 68 200 38" />
+                <path d="M 220 108 Q 208 68 200 40" />
+                <path d="M 235 110 Q 222 70 212 42" />
+                <path d="M 250 112 Q 238 75 228 46" />
+                <path d="M 265 115 Q 255 80 246 50" />
+                <path d="M 280 118 Q 272 85 266 55" />
+                <path d="M 295 122 Q 290 90 288 60" />
+                <path d="M 310 125 Q 308 95 310 65" />
+                <path d="M 325 128 Q 325 100 330 72" />
+                <path d="M 340 130 Q 342 105 350 78" />
+              </g>
+            </svg>
+          </div>
+          <span class="comparador__tag comparador__tag--antes">Antes</span>
+          <span class="comparador__tag comparador__tag--despues">Después</span>
+          <div class="comparador__handle" aria-hidden="true">
+            <div class="comparador__handle-knob"></div>
+          </div>
+          <input type="range" class="comparador__slider" min="0" max="100" value="50" aria-label="Deslizar para comparar antes y después" />
+        </div>
+
+        <p class="comparador__hint">Ilustración estilizada · tu resultado se diseña según tu morfología.</p>
+      </div>
+    </section>
+
+    <!-- ════════ TESTIMONIOS ════════ -->
+    <section id="testimonios" class="testimonios" aria-labelledby="testimonios-title">
+      <div class="testimonios__container">
+        <header class="testimonios__header">
+          <div>
+            <span class="testimonios__eyebrow">05 — Las clientas</span>
+            <h2 id="testimonios-title" class="testimonios__title">
+              Lo que <span class="testimonios__title-accent">cuentan ellas.</span>
+            </h2>
+          </div>
+          <div class="testimonios__meta">
+            <span class="testimonios__stars" aria-label="Cinco estrellas">★ ★ ★ ★ ★</span>
+            <span>5,0 promedio · clientas recurrentes</span>
+          </div>
+        </header>
+
+        <div class="testimonios__grid">
+          <article class="testimonio">
+            <span class="testimonio__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonio__quote">Llegué desde Capital sólo para que BJ me hiciera el set. Tres semanas después siguen impecables. La diferencia con otras lashistas se nota desde el primer día.</p>
+            <hr class="testimonio__rule" />
+            <div class="testimonio__author">Sofía M.</div>
+            <div class="testimonio__city">Córdoba Capital</div>
+          </article>
+
+          <article class="testimonio">
+            <span class="testimonio__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonio__quote">Probé varios lugares antes de encontrar a BJ. Ahora no me dejo poner extensiones con nadie más. Tiene un ojo distinto.</p>
+            <hr class="testimonio__rule" />
+            <div class="testimonio__author">Catalina R.</div>
+            <div class="testimonio__city">Cruz del Eje</div>
+          </article>
+
+          <article class="testimonio">
+            <span class="testimonio__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonio__quote">Le pedí algo natural y me dio exactamente eso. Todos creen que son mías. Hasta mi mamá.</p>
+            <hr class="testimonio__rule" />
+            <div class="testimonio__author">Lara V.</div>
+            <div class="testimonio__city">Villa María</div>
+          </article>
+
+          <article class="testimonio">
+            <span class="testimonio__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonio__quote">Volví al mes siguiente. La retención es real, no como las extensiones que duran tres días. Vale cada peso.</p>
+            <hr class="testimonio__rule" />
+            <div class="testimonio__author">Macarena T.</div>
+            <div class="testimonio__city">Jesús María</div>
+          </article>
+
+          <article class="testimonio">
+            <span class="testimonio__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonio__quote">Es de esas profesionales que escuchan antes de hacer. Cada cita es un ritual, no una visita rápida.</p>
+            <hr class="testimonio__rule" />
+            <div class="testimonio__author">Florencia P.</div>
+            <div class="testimonio__city">Deán Funes</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ FAQ ════════ -->
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="faq__container">
+        <header class="faq__header">
+          <span class="faq__eyebrow">06 — Antes de reservar</span>
+          <h2 id="faq-title" class="faq__title">
+            Preguntas <span class="faq__title-accent">frecuentes.</span>
+          </h2>
+          <p class="faq__sub">Las dudas que escucho a diario, respondidas.</p>
+        </header>
+
+        <div class="faq__list">
+          <details class="faq-item">
+            <summary>
+              <span class="faq-item__num">01</span>
+              <span class="faq-item__q">¿Cuánto dura una sesión de extensiones?</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-item__answer">Entre 2 y 3 horas según la técnica. Un set classic toma alrededor de 2 hs, volumen ruso 2:30 y mega volumen hasta 3 hs. El tiempo se respeta para no apurar el adhesivo y garantizar la retención.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-item__num">02</span>
+              <span class="faq-item__q">¿Cuánto dura el resultado?</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-item__answer">El set completo dura entre 3 y 4 semanas, según el ciclo natural de tu pestaña. Con un retoque cada 2–3 semanas se puede mantener la densidad indefinidamente.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-item__num">03</span>
+              <span class="faq-item__q">¿Me puedo mojar la cara después?</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-item__answer">Las primeras 24 hs hay que evitar agua y vapor sobre las pestañas para que el adhesivo termine de curar. Pasado ese tiempo, vida normal — ducha, pileta y entrenamiento incluidos.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-item__num">04</span>
+              <span class="faq-item__q">¿Puedo usar rímel sobre las extensiones?</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-item__answer">Sólo rímel water-based, sin aceites ni siliconas. Lo ideal es no usar rímel: si elegiste extensiones es porque querés librarte de él. Pero si lo necesitás, te indico cuál usar.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-item__num">05</span>
+              <span class="faq-item__q">¿Las extensiones dañan la pestaña natural?</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-item__answer">Con técnica correcta y producto profesional, no. El peso y el largo se eligen según la salud de tu pestaña natural y la extensión se adhiere a una sola pestaña (nunca varias juntas), respetando el ciclo de crecimiento.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-item__num">06</span>
+              <span class="faq-item__q">¿Cómo las cuido en casa?</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-item__answer">Limpieza diaria con espuma específica, cepillado suave con spoolie por la mañana y noche, y evitar dormir boca abajo. En el turno entrego una rutina personalizada según tu set.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-item__num">07</span>
+              <span class="faq-item__q">¿Aceptás transferencia y Mercado Pago?</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-item__answer">Sí, todos los medios: efectivo, transferencia bancaria y Mercado Pago. Para reservar pido una seña que se descuenta del total del servicio.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>
+              <span class="faq-item__num">08</span>
+              <span class="faq-item__q">¿Tenés estacionamiento?</span>
+              <span class="faq-item__sign" aria-hidden="true"></span>
+            </summary>
+            <p class="faq-item__answer">Sí, sobre la puerta del estudio. La ubicación exacta te la paso por WhatsApp cuando confirmemos el turno.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ BOOKING ════════ -->
     <section id="booking" class="booking" aria-labelledby="booking-title">
       <div class="booking__container">
         <div class="booking__intro">
-          <span class="booking__eyebrow">04 — Reservas</span>
+          <span class="booking__eyebrow">07 — Reservas</span>
           <h2 id="booking-title" class="booking__title">
             Reservá tu
             <span class="booking__title-accent">turno con BJ.</span>
@@ -839,7 +1328,7 @@
             Cada sesión es un ritual. Un espacio donde la precisión se convierte en arte y tu mirada, en tu mejor accesorio. Atendemos de forma personalizada, turno por turno, para que la experiencia sea siempre única.
           </p>
           <a
-            class="booking__cta"
+            class="booking__cta magnetic"
             href="https://wa.me/543549632202?text=Hola%20BJ!%20Vi%20tu%20sitio%20y%20quiero%20reservar%20un%20turno%20🌿"
             target="_blank"
             rel="noopener"
@@ -866,7 +1355,7 @@
 
           <div class="booking__info-block">
             <span class="booking__info-label">Contacto</span>
-            <div class="booking__info-value">(354) 963-2202</div>
+            <div class="booking__info-value">+54 9 3549 63-2202</div>
             <a
               class="booking__info-btn"
               href="https://wa.me/543549632202?text=Hola%20BJ!%20Vi%20tu%20sitio%20y%20quiero%20reservar%20un%20turno%20🌿"
@@ -896,10 +1385,12 @@
         <div class="footer__col footer__col--nav">
           <span class="footer__label">Explorá</span>
           <nav class="footer__nav" aria-label="Footer">
+            <a class="footer__nav-link" href="#servicios">Carta</a>
             <a class="footer__nav-link" href="#curvaturas">Curvaturas</a>
             <a class="footer__nav-link" href="#grosores">Efectos</a>
             <a class="footer__nav-link" href="#longitudes">Longitudes</a>
             <a class="footer__nav-link" href="#productos">Productos</a>
+            <a class="footer__nav-link" href="#testimonios">Testimonios</a>
             <a class="footer__nav-link" href="#booking">Reservas</a>
           </nav>
         </div>
@@ -907,7 +1398,7 @@
         <div class="footer__col footer__col--contact">
           <span class="footer__label">Contacto</span>
           <div class="footer__hours">Lun – Vie · 09 a 21 hs</div>
-          <a class="footer__phone" href="https://wa.me/543549632202" target="_blank" rel="noopener">(354) 963-2202</a>
+          <a class="footer__phone" href="https://wa.me/543549632202" target="_blank" rel="noopener">+54 9 3549 63-2202</a>
           <div class="footer__social">
             <a class="footer__social-link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
               <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -927,7 +1418,7 @@
       </div>
 
       <div class="footer__bottom">
-        <div class="footer__legal">© 2025 BJ · Todos los derechos reservados</div>
+        <div class="footer__legal">© 2026 BJ · Todos los derechos reservados</div>
         <div class="footer__legal">Hecho con precisión · Cruz del Eje, Argentina</div>
       </div>
     </div>

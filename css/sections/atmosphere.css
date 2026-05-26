@@ -1,0 +1,237 @@
+/* ─── Atmósfera global ────────────────────────────────────────
+   Preloader · cursor custom · grano de film · marquee de lujo ·
+   indicador de sección sticky · estilo base para .magnetic.
+   Capa atmosférica que envuelve todo el sitio sin interferir con
+   el contenido editorial.
+   ──────────────────────────────────────────────────────────── */
+
+/* ─── Preloader ─────────────────────────────────────────────── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-ink);
+  display: grid;
+  place-items: center;
+  transition: opacity 0.7s var(--ease-luxury);
+}
+.preloader.is-gone {
+  opacity: 0;
+  pointer-events: none;
+}
+.preloader__mark {
+  width: 140px;
+  height: 140px;
+  overflow: visible;
+}
+.preloader__mark path {
+  fill: none;
+  stroke: var(--color-nude);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.preloader__count {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  color: rgba(245, 239, 230, 0.5);
+}
+
+/* ─── Cursor custom ─────────────────────────────────────────── */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9500;
+  mix-blend-mode: difference;
+  will-change: transform;
+}
+.cursor__dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  transform: translate(-50%, -50%);
+  transition: width 0.3s var(--ease-luxury),
+              height 0.3s var(--ease-luxury);
+}
+.cursor__ring {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 239, 230, 0.6);
+  transform: translate(-50%, -50%);
+  transition: width 0.45s var(--ease-luxury),
+              height 0.45s var(--ease-luxury),
+              border-color 0.3s var(--ease-luxury);
+}
+.cursor.is-hover .cursor__dot {
+  width: 0;
+  height: 0;
+}
+.cursor.is-hover .cursor__ring {
+  width: 60px;
+  height: 60px;
+  border-color: var(--color-gold);
+}
+@media (hover: none), (max-width: 900px) {
+  .cursor { display: none; }
+  body { cursor: auto; }
+}
+@media (hover: hover) and (min-width: 901px) {
+  body.has-custom-cursor { cursor: none; }
+  body.has-custom-cursor a,
+  body.has-custom-cursor button,
+  body.has-custom-cursor [role="button"],
+  body.has-custom-cursor .magnetic,
+  body.has-custom-cursor input,
+  body.has-custom-cursor textarea,
+  body.has-custom-cursor select,
+  body.has-custom-cursor summary { cursor: none; }
+}
+
+/* ─── Grano de film (overlay) ───────────────────────────────── */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8500;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 200px 200px;
+}
+
+/* ─── Marquee de lujo (entre hero y about) ─────────────────── */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding: 2.2rem 0;
+  background: var(--color-ink);
+  border-top: 1px solid rgba(200, 169, 110, 0.12);
+  border-bottom: 1px solid rgba(200, 169, 110, 0.12);
+  z-index: 2;
+}
+.marquee__track {
+  display: flex;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  letter-spacing: 0.06em;
+  color: var(--color-cream);
+  animation: marquee-slide 38s linear infinite;
+  will-change: transform;
+}
+.marquee__track > * {
+  flex: none;
+  padding: 0 1.5rem;
+}
+.marquee__dot {
+  color: var(--color-gold);
+  font-style: normal;
+}
+.marquee__star {
+  display: inline-block;
+  color: var(--color-gold);
+  font-style: normal;
+  transform: rotate(0deg);
+  font-size: 0.7em;
+  vertical-align: middle;
+  margin: 0 0.6em;
+}
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+/* ─── Indicador de sección sticky (lado derecho) ────────────── */
+.section-nav {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-luxury);
+}
+.section-nav.is-visible { opacity: 1; }
+.section-nav__item {
+  position: relative;
+  display: block;
+  width: 10px;
+  height: 10px;
+  cursor: none;
+}
+.section-nav__item::before {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 239, 230, 0.45);
+  background: transparent;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s var(--ease-luxury);
+}
+.section-nav__item.is-active::before {
+  width: 10px;
+  height: 10px;
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 6px rgba(200, 169, 110, 0.15);
+}
+.section-nav__label {
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-cream);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s var(--ease-luxury);
+  mix-blend-mode: difference;
+}
+.section-nav__item:hover .section-nav__label,
+.section-nav__item:focus-visible .section-nav__label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+@media (max-width: 900px) {
+  .section-nav { display: none; }
+}
+
+/* ─── Magnetic base · sin estilo propio, JS aplica transform ── */
+.magnetic { display: inline-flex; will-change: transform; }
+.magnetic > * { will-change: transform; }
+
+/* ─── Reduced motion · respeto a accesibilidad ──────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track { animation: none; }
+  .cursor { display: none; }
+  body { cursor: auto !important; }
+  a, button { cursor: pointer !important; }
+}

@@ -1,0 +1,102 @@
+/* ─── Stats · contadores animados ─────────────────────────────
+   Cuatro métricas en horizontal sobre fondo crema, contraste
+   con secciones charcoal. Cada número se anima en cuenta
+   ascendente al entrar en viewport.
+   ──────────────────────────────────────────────────────────── */
+
+.stats {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  padding: clamp(5rem, 10vw, 9rem) 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  width: 1px; height: 60px;
+  background: var(--color-gold);
+  transform: translateX(-50%);
+}
+
+.stats__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+.stats__eyebrow {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 3rem;
+}
+
+.stats__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+@media (max-width: 900px) {
+  .stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem 1rem;
+  }
+}
+@media (max-width: 500px) {
+  .stats__grid { grid-template-columns: 1fr; }
+}
+
+.stat {
+  position: relative;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+.stat:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0; top: 30%;
+  width: 1px;
+  height: 40%;
+  background: rgba(26, 26, 26, 0.15);
+}
+@media (max-width: 900px) {
+  .stat:not(:last-child)::after { display: none; }
+}
+
+.stat__value {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  line-height: 1;
+}
+.stat__num { display: inline-block; }
+.stat__suffix {
+  font-size: 0.55em;
+  font-style: italic;
+  color: var(--color-gold);
+  margin-left: 0.1em;
+}
+.stat__label {
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(26, 26, 26, 0.7);
+}
+.stat__line {
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--color-gold);
+  margin: 1rem auto 0;
+}

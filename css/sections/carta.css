@@ -1,0 +1,203 @@
+/* ─── Carta de servicios ──────────────────────────────────────
+   Visual editorial estilo menú de fine-dining: dos columnas en
+   desktop, cada item con número correlativo, nombre, descripción
+   y duración alineada a la derecha + link "Consultar".
+   Reemplaza el placeholder #servicios.
+   ──────────────────────────────────────────────────────────── */
+
+#servicios {
+  /* override completo del placeholder anterior */
+  min-height: 0;
+  display: block;
+  background: var(--color-ink);
+  padding: clamp(6rem, 12vw, 12rem) 0;
+  text-align: left;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.carta {
+  position: relative;
+}
+.carta__container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 4rem);
+}
+
+.carta__header {
+  text-align: center;
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+}
+.carta-item { text-align: left; }
+.carta__eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+.carta__title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.8rem, 7vw, 5.6rem);
+  letter-spacing: 0.05em;
+  color: var(--color-cream);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.carta__title-accent {
+  font-style: italic;
+  color: var(--color-gold);
+  text-transform: lowercase;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+}
+.carta__sub {
+  margin-top: 1.5rem;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--color-nude);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  letter-spacing: 0.04em;
+}
+
+/* ── Grid de items: 2 col en desktop, 1 en móvil ───────────── */
+.carta__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(2rem, 4vw, 3.5rem) clamp(3rem, 6vw, 5rem);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .carta__grid { grid-template-columns: 1fr; }
+}
+
+/* ── Item individual ──────────────────────────────────────── */
+.carta-item {
+  position: relative;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid rgba(200, 169, 110, 0.18);
+  transition: padding 0.5s var(--ease-luxury);
+}
+.carta-item:hover {
+  padding-left: 0.6rem;
+}
+.carta-item__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.carta-item__name-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.carta-item__num {
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--color-gold);
+  flex: none;
+}
+.carta-item__name {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  letter-spacing: 0.02em;
+  color: var(--color-cream);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+.carta-item__duration {
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-nude);
+  white-space: nowrap;
+  flex: none;
+}
+.carta-item__duration::before {
+  content: "·";
+  margin-right: 0.5em;
+  color: var(--color-gold);
+}
+.carta-item__desc {
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(245, 239, 230, 0.72);
+  margin-bottom: 1rem;
+  padding-left: calc(0.9rem + 1.8em);
+  max-width: 42ch;
+}
+@media (max-width: 600px) {
+  .carta-item__desc { padding-left: 0; }
+}
+.carta-item__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: calc(0.9rem + 1.8em);
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  position: relative;
+  transition: color 0.3s var(--ease-luxury), padding-left 0.4s var(--ease-luxury);
+}
+@media (max-width: 600px) {
+  .carta-item__cta { padding-left: 0; }
+}
+.carta-item__cta::after {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.4s var(--ease-luxury);
+  display: inline-block;
+}
+.carta-item__cta:hover { color: var(--color-cream); }
+.carta-item__cta:hover::after {
+  background: var(--color-cream);
+  width: 55px;
+}
+.carta-item__cta-arrow {
+  display: inline-block;
+  transition: transform 0.4s var(--ease-luxury);
+}
+.carta-item__cta:hover .carta-item__cta-arrow {
+  transform: translateX(6px);
+}
+
+/* ── Pie de carta · nota ───────────────────────────────────── */
+.carta__footnote {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  text-align: center;
+  font-weight: 200;
+  font-style: italic;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  color: rgba(245, 239, 230, 0.5);
+}
+.carta__footnote-rule {
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: rgba(200, 169, 110, 0.4);
+  margin: 0 auto 1.5rem;
+  border: none;
+}
