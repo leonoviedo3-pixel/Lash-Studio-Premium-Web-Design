@@ -4,6 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0D0D0D" />
+
+  <!-- ─── Cabezeras de seguridad vía http-equiv ───────────────
+       Ideal: setearlas como HTTP response headers en el server.
+       Como fallback para hosting estático (Vercel/Netlify/GitHub
+       Pages sin config) las dejamos acá. -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data:;
+    connect-src 'self';
+    frame-ancestors 'none';
+    form-action 'none';
+    base-uri 'self';
+    object-src 'none';
+    upgrade-insecure-requests
+  " />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()" />
   <meta name="description" content="Lash Studio BJ — Soft Luxury Lashes. Pelo a pelo, volumen ruso, lifting y cejas en Cruz del Eje, Córdoba. Técnica certificada, insumos premium, atención personalizada." />
   <meta name="keywords" content="lashista cruz del eje, extensiones de pestañas córdoba, volumen ruso, lifting pestañas, laminado de cejas, pelo a pelo, BJ lash studio" />
   <meta name="author" content="Lash Studio BJ" />
@@ -173,7 +194,7 @@
           class="hero__cta magnetic"
           href="https://wa.me/543549632202?text=Hola%20BJ!%20Vi%20tu%20sitio%20y%20quiero%20reservar%20un%20turno%20🌿"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           <span>Reservá tu turno</span>
           <span class="hero__cta-arrow" aria-hidden="true">→</span>
@@ -268,7 +289,7 @@
               <span class="carta-item__duration">~ 2 hs</span>
             </div>
             <p class="carta-item__desc">Una extensión por pestaña natural. Densidad refinada, look diario que pasa desapercibido pero transforma.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Pelo%20a%20Pelo%20Classic" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Pelo%20a%20Pelo%20Classic" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -282,7 +303,7 @@
               <span class="carta-item__duration">~ 2:30 hs</span>
             </div>
             <p class="carta-item__desc">Fans hechos a mano, dos o tres extensiones ultra finas por pestaña. Definición con cuerpo, sin perder naturalidad.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Volumen%20Ruso" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Volumen%20Ruso" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -296,7 +317,7 @@
               <span class="carta-item__duration">~ 3 hs</span>
             </div>
             <p class="carta-item__desc">Máximo cuerpo y densidad. Para mirada editorial, eventos o quien busca un statement.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Mega%20Volumen" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Mega%20Volumen" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -310,7 +331,7 @@
               <span class="carta-item__duration">~ 2:30 hs</span>
             </div>
             <p class="carta-item__desc">Mezcla 50/50 de pelo a pelo y volumen. Textura híbrida, lo mejor de ambos mundos.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Hybrid" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Hybrid" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -324,7 +345,7 @@
               <span class="carta-item__duration">~ 1:15 hs</span>
             </div>
             <p class="carta-item__desc">Rizado permanente sobre tu pestaña natural. Sin extensiones, máxima apertura de mirada.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Lifting%20de%20Pestañas" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Lifting%20de%20Pestañas" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -338,7 +359,7 @@
               <span class="carta-item__duration">~ 1:30 hs</span>
             </div>
             <p class="carta-item__desc">Lifting con teñido profesional. Profundiza el color y refuerza la definición.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Lifting%20más%20Tinte" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Lifting%20más%20Tinte" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -352,7 +373,7 @@
               <span class="carta-item__duration">~ 1:15 hs</span>
             </div>
             <p class="carta-item__desc">Cada dos o tres semanas, repone la densidad y prolonga la vida del set original.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Retoque%20de%20Mantenimiento" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Retoque%20de%20Mantenimiento" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -366,7 +387,7 @@
               <span class="carta-item__duration">~ 1 h</span>
             </div>
             <p class="carta-item__desc">Alisado y modelado de cejas. Forma definida, look ordenado por seis a ocho semanas.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Laminado%20de%20Cejas" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Laminado%20de%20Cejas" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -380,7 +401,7 @@
               <span class="carta-item__duration">~ 45 min</span>
             </div>
             <p class="carta-item__desc">Color y forma combinados. Diseño según la morfología de tu rostro.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Tinte%20más%20Perfilado%20de%20Cejas" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Tinte%20más%20Perfilado%20de%20Cejas" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -394,7 +415,7 @@
               <span class="carta-item__duration">~ 40 min</span>
             </div>
             <p class="carta-item__desc">Removedor profesional para extensiones aplicadas en otro estudio, sin dañar la pestaña natural.</p>
-            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Retiro%20Profesional" target="_blank" rel="noopener">
+            <a class="carta-item__cta" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20Retiro%20Profesional" target="_blank" rel="noopener noreferrer">
               Consultar <span class="carta-item__cta-arrow" aria-hidden="true">→</span>
             </a>
           </li>
@@ -1141,7 +1162,7 @@
         <div class="productos__cta">
           <h3 class="productos__cta-title">¿Buscás un producto específico?</h3>
           <p class="productos__cta-sub">Escribinos y te asesoramos sin cargo.</p>
-          <a href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener" class="productos__cta-btn magnetic">Consultanos</a>
+          <a href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20consultar%20por%20un%20producto" target="_blank" rel="noopener noreferrer" class="productos__cta-btn magnetic">Consultanos</a>
         </div>
       </div>
     </section>
@@ -1375,7 +1396,7 @@
             class="booking__cta magnetic"
             href="https://wa.me/543549632202?text=Hola%20BJ!%20Vi%20tu%20sitio%20y%20quiero%20reservar%20un%20turno%20🌿"
             target="_blank"
-            rel="noopener"
+            rel="noopener noreferrer"
           >
             <svg class="booking__cta-icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -1404,7 +1425,7 @@
               class="booking__info-btn"
               href="https://wa.me/543549632202?text=Hola%20BJ!%20Vi%20tu%20sitio%20y%20quiero%20reservar%20un%20turno%20🌿"
               target="_blank"
-              rel="noopener"
+              rel="noopener noreferrer"
             >Escribir por WhatsApp →</a>
           </div>
 
@@ -1442,17 +1463,17 @@
         <div class="footer__col footer__col--contact">
           <span class="footer__label">Contacto</span>
           <div class="footer__hours">Lun – Vie · 09 a 21 hs</div>
-          <a class="footer__phone" href="https://wa.me/543549632202" target="_blank" rel="noopener">+54 9 3549 63-2202</a>
+          <a class="footer__phone" href="https://wa.me/543549632202" target="_blank" rel="noopener noreferrer">+54 9 3549 63-2202</a>
           <div class="footer__social">
             <!-- Reemplazar href con el handle real cuando esté disponible -->
-            <a class="footer__social-link" data-social="instagram" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20seguirte%20en%20Instagram%20—%20pasame%20tu%20usuario" target="_blank" rel="noopener" aria-label="Pedir Instagram por WhatsApp" title="Pedir Instagram por WhatsApp">
+            <a class="footer__social-link" data-social="instagram" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20seguirte%20en%20Instagram%20—%20pasame%20tu%20usuario" target="_blank" rel="noopener noreferrer" aria-label="Pedir Instagram por WhatsApp" title="Pedir Instagram por WhatsApp">
               <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="0.8" />
               </svg>
             </a>
-            <a class="footer__social-link" data-social="tiktok" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20seguirte%20en%20TikTok%20—%20pasame%20tu%20usuario" target="_blank" rel="noopener" aria-label="Pedir TikTok por WhatsApp" title="Pedir TikTok por WhatsApp">
+            <a class="footer__social-link" data-social="tiktok" href="https://wa.me/543549632202?text=Hola%20BJ!%20Quiero%20seguirte%20en%20TikTok%20—%20pasame%20tu%20usuario" target="_blank" rel="noopener noreferrer" aria-label="Pedir TikTok por WhatsApp" title="Pedir TikTok por WhatsApp">
               <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M15 4 v10.5 a4 4 0 1 1 -4 -4" />
                 <path d="M15 4 a4 4 0 0 0 4 4" />
@@ -1469,9 +1490,22 @@
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <!-- CDN scripts con Subresource Integrity (SRI) + crossorigin.
+       Si el CDN se compromete, el browser rechaza el archivo si su hash
+       no coincide. Mitiga supply-chain. Hashes calculados sobre las
+       versiones exactas que se referencian. Cambiar la versión = recalcular. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+          integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+          integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"
+          integrity="sha384-B2WBjDzEjJpYvhmi2UyEn7rektqkf5suS6sNoyyrf0EBAwBHdkiXxIlU0V5Ru2ed"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
   <script src="js/animations.js"></script>
 </body>
 </html>

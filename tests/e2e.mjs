@@ -288,6 +288,69 @@ const tests = [
       expect(isGone, 'preloader no recibió clase is-gone');
     },
   },
+
+  // ───────────────────────────────────────────────────────
+  // 10. Seguridad: CSP + SRI + headers
+  // ───────────────────────────────────────────────────────
+  {
+    name: 'Security · CSP meta presente con script-src restrictivo',
+    async fn(page) {
+      await page.goto(BASE_URL);
+      const csp = await page.locator('meta[http-equiv="Content-Security-Policy"]').getAttribute('content');
+      expect(csp, 'falta CSP meta tag');
+      expect(csp.includes("default-src 'self'"), 'CSP sin default-src self');
+      expect(csp.includes("frame-ancestors 'none'"), 'CSP sin frame-ancestors none (anti-clickjacking)');
+      expect(csp.includes("object-src 'none'"), 'CSP sin object-src none');
+      expect(!csp.includes("script-src 'unsafe-inline'"), 'CSP permite scripts inline ejecutables');
+      expect(!csp.includes("script-src 'unsafe-eval'"), 'CSP permite eval');
+    },
+  },
+
+  {
+    name: 'Security · 3 CDN scripts con SRI integrity sha384',
+    async fn(page) {
+      await page.goto(BASE_URL);
+      const scripts = await page.$$eval('script[src^="https://"]', (els) =>
+        els.map((el) => ({
+          src: el.getAttribute('src'),
+          integrity: el.getAttribute('integrity'),
+          crossorigin: el.getAttribute('crossorigin'),
+        }))
+      );
+      expect(scripts.length >= 3, `esperaba al menos 3 CDN scripts, encontré ${scripts.length}`);
+      for (const s of scripts) {
+        expect(s.integrity?.startsWith('sha384-'), `${s.src} sin integrity sha384`);
+        expect(s.crossorigin === 'anonymous', `${s.src} sin crossorigin=anonymous`);
+      }
+    },
+  },
+
+  {
+    name: 'Security · todos los target=_blank tienen rel noopener noreferrer',
+    async fn(page) {
+      await page.goto(BASE_URL);
+      const links = await page.$$eval('a[target="_blank"]', (els) =>
+        els.map((el) => ({ href: el.getAttribute('href'), rel: el.getAttribute('rel') }))
+      );
+      expect(links.length > 0, 'no hay links target=_blank para verificar');
+      for (const l of links) {
+        expect(l.rel?.includes('noopener'), `link ${l.href} sin rel=noopener`);
+        expect(l.rel?.includes('noreferrer'), `link ${l.href} sin rel=noreferrer`);
+      }
+    },
+  },
+
+  {
+    name: 'Security · Permissions-Policy bloquea camera/mic/geo',
+    async fn(page) {
+      await page.goto(BASE_URL);
+      const pp = await page.locator('meta[http-equiv="Permissions-Policy"]').getAttribute('content');
+      expect(pp, 'falta Permissions-Policy meta');
+      expect(pp.includes('camera=()'), 'camera no bloqueada');
+      expect(pp.includes('microphone=()'), 'microphone no bloqueada');
+      expect(pp.includes('geolocation=()'), 'geolocation no bloqueada');
+    },
+  },
 ];
 
 // ─────────────────────────────────────────────────────────
